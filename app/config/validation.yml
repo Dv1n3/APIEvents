@@ -1,0 +1,13 @@
+Appbundle\Entity\Event:
+  constraints:
+      -Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: cookieId
+  properties:
+    name:
+      - NotBlank: ~
+      - Type: string
+    referrer:
+      - NotBlank: ~
+      - Type: string
+    cookieId:
+      - NotBlank: ~
+      - Type: integer
