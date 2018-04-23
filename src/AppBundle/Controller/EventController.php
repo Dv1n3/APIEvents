@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use AppBundle\Entity\Event;
 use FOS\RestBundle\Controller\Annotations as Rest;
+use AppBundle\Repository\EventRepository;
 
 /**
  * Created by PhpStorm.
@@ -25,6 +26,7 @@ class EventController extends Controller
      * @Rest\Get("/api/events")
      */
     public function getEventsAction(Request $request){
+
         $events = $this->getDoctrine()
             ->getRepository('AppBundle:Event')
             ->findAll();
@@ -39,6 +41,8 @@ class EventController extends Controller
      * @Rest\Get("/api/events/{id}")
      */
     public function getEventAction(Request $request){
+
+
         $event = $this->getDoctrine()
             ->getRepository('AppBundle:Event')
             ->findBy($request->get('id'));
@@ -84,9 +88,9 @@ class EventController extends Controller
             $em->remove($event);
             $em->flush();
         }
-        else
+        else {
             return View::create(['message' => 'Event not found'], Response::HTTP_NOT_FOUND);
-
+        }
     }
 
     /**
@@ -131,7 +135,21 @@ class EventController extends Controller
         }
     }
 
-    public function getDashboardAction(Request $request){
+    public function getEventsByNameAction(Request $request){
 
+    }
+
+    /**
+     * @Rest\View()
+     * @Rest\Get("/api/dashboard")
+     */
+    public function getNbOfEventsAction()
+    {
+        $repository = $this
+            ->getDoctrine()
+            ->getManager()
+            ->getRepository('AppBundle:Event');
+    $nbOfEvents = $repository->getNbOfEvents();
+    return $nbOfEvents;
     }
 }

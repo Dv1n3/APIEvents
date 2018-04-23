@@ -10,4 +10,11 @@ namespace AppBundle\Repository;
  */
 class EventRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getNbOfEvents(){
+        return $this->createQueryBuilder('e')
+            ->select('COUNT(e)')
+            ->from('AppBundle:Event', 'event')
+            ->getQuery()
+            ->getResult();
+    }
 }
