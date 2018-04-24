@@ -46,7 +46,6 @@ class EventController extends Controller
         $event = $this->getDoctrine()
             ->getRepository('AppBundle:Event')
             ->findBy($request->get('id'));
-
         if (empty($event)){
             return View::create(['message' => 'Event not found'], Response::HTTP_NOT_FOUND);
         }
@@ -141,15 +140,26 @@ class EventController extends Controller
 
     /**
      * @Rest\View()
-     * @Rest\Get("/api/dashboard")
+     * @Rest\Get("/api/dashboard/byName")
      */
     public function getNbOfEventsAction()
     {
         $repository = $this
             ->getDoctrine()
-            ->getManager()
             ->getRepository('AppBundle:Event');
-    $nbOfEvents = $repository->getNbOfEvents();
+            $nbOfEvents = $repository->getNbOfEventByName();
     return $nbOfEvents;
+    }
+
+    /**
+     * @Rest\View()
+     * @Rest\Get("/api/dashboard/byMinute")
+     */
+    public function getNbOfEventByMinute(){
+        $repository = $this
+            ->getDoctrine()
+            ->getRepository('AppBundle:Event');
+            $nbOfEvents = $repository->getNbOfEventByMinute();
+            return $nbOfEvents;
     }
 }

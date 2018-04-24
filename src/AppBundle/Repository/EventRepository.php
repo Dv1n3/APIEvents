@@ -10,10 +10,21 @@ namespace AppBundle\Repository;
  */
 class EventRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function getNbOfEvents(){
+    public function getNbOfEventByName(){
+
         return $this->createQueryBuilder('e')
-            ->select('COUNT(e)')
-            ->from('AppBundle:Event', 'event')
+            ->select('e.name')
+            ->addselect('count(e) as occurence')
+            ->groupBy('e.name')
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function getNbOfEventByMinute(){
+        return $this->createQueryBuilder('e')
+            ->select('e.name')
+            ->addSelect('e.createdAt')
+            ->groupBy('e.createdAt')
             ->getQuery()
             ->getResult();
     }
