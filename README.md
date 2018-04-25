@@ -33,8 +33,8 @@ https://www.getpostman.com/apps
 "nom": "modifiedName"
 }
 
-***Modifier totalement un groupe POST***
-http://localhost/APIEvents/web/app_dev.php/api/events/1
+***Modifier totalement un groupe POST 
+http://localhost/APIEvents/web/app_dev.php/api/events/1***
 
 {
     "name":"modidfiedName,
