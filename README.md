@@ -1,4 +1,4 @@
-https://github.com/Dv1n3/APIEvents.gita***Clonez le repository dans votre wamp/www***
+***Clonez le repository dans votre wamp/www***
 git clone https://github.com/Dv1n3/APIEvents.git
 
 ***Téléchargez les dépendances en éxécutant dans la console:***
