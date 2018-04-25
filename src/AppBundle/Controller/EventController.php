@@ -22,7 +22,7 @@ use AppBundle\Repository\EventRepository;
 class EventController extends Controller
 {
     /**
-     * @Rest\View()
+     * @Rest\View(statusCode = 200)
      * @Rest\Get("/api/events")
      */
     public function getEventsAction(Request $request){
@@ -37,7 +37,7 @@ class EventController extends Controller
     }
 
     /**
-     * @Rest\View()
+     * @Rest\View(statusCode = 200)
      * @Rest\Get("/api/events/{id}")
      */
     public function getEventAction(Request $request){
@@ -139,7 +139,7 @@ class EventController extends Controller
     }
 
     /**
-     * @Rest\View()
+     * @Rest\View(statusCode = 200)
      * @Rest\Get("/api/dashboard/byName")
      */
     public function getNbOfEventsAction()
@@ -152,14 +152,14 @@ class EventController extends Controller
     }
 
     /**
-     * @Rest\View()
-     * @Rest\Get("/api/dashboard/byMinute")
+     * @Rest\View(statusCode = 200)
+     * @Rest\Get("/api/dashboard/byCreationDate")
      */
     public function getNbOfEventByMinute(){
         $repository = $this
             ->getDoctrine()
             ->getRepository('AppBundle:Event');
-            $nbOfEvents = $repository->getNbOfEventByMinute();
+            $nbOfEvents = $repository->getNbOfEventByCreationDate();
             return $nbOfEvents;
     }
 }

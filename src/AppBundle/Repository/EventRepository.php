@@ -20,7 +20,7 @@ class EventRepository extends \Doctrine\ORM\EntityRepository
             ->getResult();
     }
 
-    public function getNbOfEventByMinute(){
+    public function getNbOfEventByCreationDate(){
         return $this->createQueryBuilder('e')
             ->select('e.name')
             ->addSelect('e.createdAt')
