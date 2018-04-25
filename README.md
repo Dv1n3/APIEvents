@@ -7,7 +7,7 @@ composer update
 ***Télechargez et installez Postman à partir du lien suivant:***
 https://www.getpostman.com/apps
 
-***Création de la base de données***
+***Création de la base de données*** 
 
 **php bin/console doctrine:database:create **
 **php bin/console doctrine:schema:update --force**
