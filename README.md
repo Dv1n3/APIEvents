@@ -30,17 +30,13 @@ https://www.getpostman.com/apps
 ***Modifier partiellement un groupe PATCH http://localhost/APIEvents/web/app_dev.php/api/events/1***
 
 { 
-"nom": "modifiedName"
+"name": "modifiedName"
 }
 
-***Modifier totalement un groupe POST 
+***Modifier totalement un groupe POST
 http://localhost/APIEvents/web/app_dev.php/api/events/1***
 
-{
-    "name":"modidfiedName,
-    "referrer":"modifiedreferrer",
-    "cookieId":1
-}
+{"name":"modidfiedName, "referrer":"modifiedreferrer", "cookieId":1}
 =================================================================
 
 ***Supprimer un évenement DELETE http://localhost/APIEvents/web/app_dev.php/api/events/1***
