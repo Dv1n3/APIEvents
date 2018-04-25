@@ -34,7 +34,7 @@ https://www.getpostman.com/apps
 }
 
 ***Modifier totalement un groupe POST***
-http://localhost/APIEvents/web/app_dev.php/api/events/1***
+http://localhost/APIEvents/web/app_dev.php/api/events/1
 
 {
     "name":"modidfiedName,
