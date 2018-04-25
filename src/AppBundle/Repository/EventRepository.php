@@ -24,7 +24,7 @@ class EventRepository extends \Doctrine\ORM\EntityRepository
         return $this->createQueryBuilder('e')
             ->select('e.name')
             ->addSelect('e.createdAt')
-            ->groupBy('e.createdAt')
+            ->orderBy('e.createdAt')
             ->getQuery()
             ->getResult();
     }
